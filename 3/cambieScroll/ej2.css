@@ -1,0 +1,62 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    line-height: 1.5;
+    min-height: 100vh;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: auto auto;
+    justify-content: center;
+    align-content: center;
+  
+    timeline-scope: --scale-progress;
+    animation: colorChange auto linear forwards;
+    animation-timeline: --scale-progress;
+  }
+  
+  .scroller {
+    position: relative;
+    max-width: 300px;
+    max-height: 300px;
+    overflow: scroll;
+    border: 1px solid;
+    padding: 1rem;
+    background: white;
+    scroll-timeline: --scale-progress;
+  }
+  
+  .progress-wrapper {
+    border: 2px solid black;
+    padding: 0.5rem;
+  }
+  
+  .progress {
+    width: 5rem;
+    height: 100%;
+    background: black;
+    transform-origin: center 100%;
+    animation: scaleProgress auto linear forwards;
+    animation-timeline: --scale-progress;
+  }
+  
+  @keyframes colorChange {
+    0% {
+      background-color: deeppink;
+    }
+    100% {
+      background-color: turquoise;
+    }
+  }
+  
+  @keyframes scaleProgress {
+    0% {
+      scale: 1 0;
+    }
+  
+    100% {
+      scale: 1 1;
+    }
+  }
+  
