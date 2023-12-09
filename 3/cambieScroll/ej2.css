@@ -1,62 +1,22 @@
-* {
-    box-sizing: border-box;
+.progress{
+  height: 1em; /*Altura de la barra de progreso*/
+  position: fixed; /*La barra permanece fija*/
+  top: 0; /*Se coloca en la parte superior de la ventana*/
+  left: 0;/*Se coloca en la parte izquierda de la ventana*/
+  width: 100%; /*Ocupa toda la anchura*/
+  transform-origin: 0 50%; /* El punto de transformación es en el extremo izquierdo (0) y en el centro vertical (50%) */
+  background-color: green;
+  animation-timeline: scroll(root);/* Define una línea de tiempo de animación vinculada al desplazamiento de la raíz (página completa) */
+  animation-name: scaleProgress;/* Nombre de la animación definida más abajo */
+  animation-duration: auto;  /* Duración automática, la animación dura el tiempo que tarda en desplazarse por la página */
+  animation-timing-function: linear; /* Función de temporización lineal para un progreso constante */
+}
+
+@keyframes scaleProgress{
+  0%{
+    transform: scaleX(0);
   }
-  
-  body {
-    line-height: 1.5;
-    min-height: 100vh;
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: auto auto;
-    justify-content: center;
-    align-content: center;
-  
-    timeline-scope: --scale-progress;
-    animation: colorChange auto linear forwards;
-    animation-timeline: --scale-progress;
+  100%{
+    transform: scaleX(1);
   }
-  
-  .scroller {
-    position: relative;
-    max-width: 300px;
-    max-height: 300px;
-    overflow: scroll;
-    border: 1px solid;
-    padding: 1rem;
-    background: white;
-    scroll-timeline: --scale-progress;
-  }
-  
-  .progress-wrapper {
-    border: 2px solid black;
-    padding: 0.5rem;
-  }
-  
-  .progress {
-    width: 5rem;
-    height: 100%;
-    background: black;
-    transform-origin: center 100%;
-    animation: scaleProgress auto linear forwards;
-    animation-timeline: --scale-progress;
-  }
-  
-  @keyframes colorChange {
-    0% {
-      background-color: deeppink;
-    }
-    100% {
-      background-color: turquoise;
-    }
-  }
-  
-  @keyframes scaleProgress {
-    0% {
-      scale: 1 0;
-    }
-  
-    100% {
-      scale: 1 1;
-    }
-  }
-  
+}
